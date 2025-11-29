@@ -9,15 +9,27 @@ public class PlayerAbilityHandler : MonoBehaviour
     private PlayerAbility areaOfEffectAbilityInstance;
     public PlayerAbility rangedAbility;
     private PlayerAbility rangedAbilityInstance;
+    public PlayerAbility defensiveAbility;
+    private PlayerAbility defensiveAbilityInstance;
     public Transform abilityFolder;
     public Player thisPlayer;
     private void Start()
     {
         meleeAbilityInstance = Instantiate(meleeAbility, abilityFolder);
         meleeAbilityInstance.thisPlayer = thisPlayer;
-        areaOfEffectAbilityInstance = Instantiate(areaOfEffectAbility, abilityFolder);
-        areaOfEffectAbilityInstance.thisPlayer = thisPlayer;
-        rangedAbilityInstance = Instantiate(rangedAbility, abilityFolder);
-        rangedAbilityInstance.thisPlayer = thisPlayer;
+        //areaOfEffectAbilityInstance = Instantiate(areaOfEffectAbility, abilityFolder);
+        //areaOfEffectAbilityInstance.thisPlayer = thisPlayer;
+        //rangedAbilityInstance = Instantiate(rangedAbility, abilityFolder);
+        //rangedAbilityInstance.thisPlayer = thisPlayer;
+        //defensiveAbilityInstance = Instantiate(defensiveAbility, abilityFolder);
+        //defensiveAbilityInstance.thisPlayer = thisPlayer;
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Z))
+        {
+            meleeAbilityInstance.ActivateAbility();
+        }
     }
 }

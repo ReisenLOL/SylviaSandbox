@@ -17,7 +17,7 @@ public class PlayerAbility : MonoBehaviour
 
     public void ActivateAbility()
     {
-        if (abilityCooldown <= 0)
+        if (currentAbilityCooldown <= 0)
         {
             currentAbilityCooldown = abilityCooldown;
             AbilityEffects();

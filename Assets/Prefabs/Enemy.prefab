@@ -516,10 +516,14 @@ MonoBehaviour:
   maxHealth: 100
   defense: 0
   invulnerable: 0
-  speed: 4
+  speed: 2
   canAttack: 1
   canMove: 1
   rb: {fileID: 342996080155256350}
   audioSource: {fileID: 5111497847271329632}
+  spriteRenderers:
+  - {fileID: 1122396262063095569}
+  damageColorChangeSpeed: 8
+  acceleration: 150
   mainAttack: {fileID: 0}
   mainAttackInstance: {fileID: 0}

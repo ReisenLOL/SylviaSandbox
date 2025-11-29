@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    private Vector3 moveDirection;
+    public Vector3 moveDirection;
     public Vector3 mousePos;
     [SerializeField] private Camera cam;
+    public float directionAngle;
     private void FixedUpdate()
     {
         rb.linearVelocity = moveDirection * speed;

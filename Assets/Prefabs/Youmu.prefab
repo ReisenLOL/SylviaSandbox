@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1057497662968591099}
   - component: {fileID: 6835164102361233984}
   - component: {fileID: 513317751254649460}
+  - component: {fileID: -5333423749635760724}
   m_Layer: 0
   m_Name: Youmu
   m_TagString: Untagged
@@ -36,6 +37,7 @@ Transform:
   m_Children:
   - {fileID: 933905935663493440}
   - {fileID: 587236217812924443}
+  - {fileID: 6996310848630606505}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5531528913532660114
@@ -284,8 +286,62 @@ MonoBehaviour:
   canMove: 1
   rb: {fileID: 151578058250108183}
   audioSource: {fileID: 6835164102361233984}
+  spriteRenderers:
+  - {fileID: 5531528913532660114}
+  damageColorChangeSpeed: 0.2
+  moveDirection: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0, z: 0}
   cam: {fileID: 0}
+  directionAngle: 0
+--- !u!114 &-5333423749635760724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755639546199993937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4319401f1bf6abaeeaedb0cb1f71aea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeAbility: {fileID: 6548216960481748679, guid: 0dbbc8cf6e48f8f9cacbf9f032b3f461, type: 3}
+  areaOfEffectAbility: {fileID: 0}
+  rangedAbility: {fileID: 0}
+  defensiveAbility: {fileID: 0}
+  abilityFolder: {fileID: 6996310848630606505}
+  thisPlayer: {fileID: 513317751254649460}
+--- !u!1 &5345856558284293111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6996310848630606505}
+  m_Layer: 0
+  m_Name: Abilities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6996310848630606505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345856558284293111}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1885162294938916450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7583350772714058244
 GameObject:
   m_ObjectHideFlags: 0
