@@ -17,10 +17,10 @@ public class PlayerAbilityHandler : MonoBehaviour
     {
         meleeAbilityInstance = Instantiate(meleeAbility, abilityFolder);
         meleeAbilityInstance.thisPlayer = thisPlayer;
-        //areaOfEffectAbilityInstance = Instantiate(areaOfEffectAbility, abilityFolder);
-        //areaOfEffectAbilityInstance.thisPlayer = thisPlayer;
-        //rangedAbilityInstance = Instantiate(rangedAbility, abilityFolder);
-        //rangedAbilityInstance.thisPlayer = thisPlayer;
+        areaOfEffectAbilityInstance = Instantiate(areaOfEffectAbility, abilityFolder);
+        areaOfEffectAbilityInstance.thisPlayer = thisPlayer;
+        rangedAbilityInstance = Instantiate(rangedAbility, abilityFolder);
+        rangedAbilityInstance.thisPlayer = thisPlayer;
         //defensiveAbilityInstance = Instantiate(defensiveAbility, abilityFolder);
         //defensiveAbilityInstance.thisPlayer = thisPlayer;
     }
@@ -30,6 +30,14 @@ public class PlayerAbilityHandler : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Z))
         {
             meleeAbilityInstance.ActivateAbility();
+        }
+        else if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.X))
+        {
+            areaOfEffectAbilityInstance.ActivateAbility();
+        }
+        else if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.C))
+        {
+            rangedAbilityInstance.ActivateAbility();
         }
     }
 }

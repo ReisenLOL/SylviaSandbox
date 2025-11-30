@@ -7,6 +7,7 @@ public class Player : Entity
     public Vector3 mousePos;
     [SerializeField] private Camera cam;
     public float directionAngle;
+    [SerializeField] private Transform healthBarUI;
     private void FixedUpdate()
     {
         rb.linearVelocity = moveDirection * speed;
@@ -20,5 +21,16 @@ public class Player : Entity
     private void Update()
     {
         HandleMovement();
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        UpdateHealthBar();
+    }
+
+    private void UpdateHealthBar()
+    {
+        healthBarUI.localScale = new Vector3(health/maxHealth, 1f,1f);
     }
 }

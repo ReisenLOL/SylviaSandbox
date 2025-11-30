@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 6835164102361233984}
   - component: {fileID: 513317751254649460}
   - component: {fileID: -5333423749635760724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Youmu
-  m_TagString: Untagged
+  m_TagString: Friendly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   audioSource: {fileID: 6835164102361233984}
   spriteRenderers:
   - {fileID: 5531528913532660114}
-  damageColorChangeSpeed: 0.2
+  damageColorChangeSpeed: 8
   moveDirection: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0, z: 0}
   cam: {fileID: 0}
@@ -306,8 +306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAbility: {fileID: 6548216960481748679, guid: 0dbbc8cf6e48f8f9cacbf9f032b3f461, type: 3}
-  areaOfEffectAbility: {fileID: 0}
-  rangedAbility: {fileID: 0}
+  areaOfEffectAbility: {fileID: -1694860217565246590, guid: ac5ffd5567d225e06ae0fe51adb7c9d7, type: 3}
+  rangedAbility: {fileID: 2197014430216817265, guid: 122c9ca9caf41536c968ea174b84bf82, type: 3}
   defensiveAbility: {fileID: 0}
   abilityFolder: {fileID: 6996310848630606505}
   thisPlayer: {fileID: 513317751254649460}
@@ -320,7 +320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6996310848630606505}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Abilities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 933905935663493440}
   - component: {fileID: 2174310851676601312}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,6 +437,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1885162294938916450}
     m_Modifications:
+    - target: {fileID: 276554450327221598, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 388671851313381515, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188162343587998240, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1472881147327290328, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -480,6 +492,42 @@ PrefabInstance:
     - target: {fileID: 1897530069246851820, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
       propertyPath: m_Name
       value: YoumuAccessories
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503761434080204809, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4417450094779376288, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660350064436794275, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083167604607047272, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141186522299466547, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833753825372115058, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565405201359162533, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7889393146185076165, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207896229881151229, guid: 7c97cd406444bb998bb5fe19bbebf6e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

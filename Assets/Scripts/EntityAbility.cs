@@ -2,14 +2,27 @@ using UnityEngine;
 
 public class EntityAbility : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Enemy thisEntity; // i realize we probably don't have entities other than enemies.
+    [Header("Cooldown")]
+    public float abilityCooldown;
+    public float currentAbilityCooldown;
+    protected virtual void Update()
     {
-        
+        if (currentAbilityCooldown > 0)
+        {
+            currentAbilityCooldown -= Time.deltaTime;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ActivateAbility()
+    {
+        if (currentAbilityCooldown <= 0)
+        {
+            currentAbilityCooldown = abilityCooldown;
+            AbilityEffects();
+        }
+    }
+    protected virtual void AbilityEffects()
     {
         
     }
