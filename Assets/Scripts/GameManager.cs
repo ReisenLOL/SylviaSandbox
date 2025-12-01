@@ -23,4 +23,10 @@ public class GameManager : MonoBehaviour
     public float score;
     [Header("UI")] 
     public TextMeshProUGUI scoreUI;
+
+    public void UpdateScore()
+    {
+        score += 1;
+        scoreUI.text = $"Score: {score}";
+    }
 }

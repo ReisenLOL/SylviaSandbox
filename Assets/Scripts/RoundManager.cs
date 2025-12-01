@@ -30,17 +30,20 @@ public class RoundManager : MonoBehaviour
     [Header("Spawning")]
     public Transform[] spawnLocations;
     public float spawnDelay;
+    public int roundNumber = 1;
 
     private void Start()
     {
-        StartCoroutine(SpawnWave(2));
+        StartCoroutine(SpawnWave(1));
     }
 
     public void UpdateEnemyCount()
     {
+        GameManager.instance.UpdateScore();
         if (currentEnemies.Count == 0)
         {
-            StartCoroutine(SpawnWave(2)); //i'll have to figure out the wave spawning amount later.
+            StartCoroutine(SpawnWave(roundNumber)); //i'll have to figure out the wave spawning amount later.
+            roundNumber++;
         }
     }
 
