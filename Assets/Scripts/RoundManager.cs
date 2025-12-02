@@ -31,7 +31,9 @@ public class RoundManager : MonoBehaviour
     public Transform[] spawnLocations;
     public float spawnDelay;
     public int roundNumber = 1;
-
+    public float amountToSpawn;
+    public float baseSpawnAmount;
+    public float exponentIncrease;
     private void Start()
     {
         StartCoroutine(SpawnWave(1));
@@ -42,7 +44,8 @@ public class RoundManager : MonoBehaviour
         GameManager.instance.UpdateScore();
         if (currentEnemies.Count == 0)
         {
-            StartCoroutine(SpawnWave(roundNumber)); //i'll have to figure out the wave spawning amount later.
+            amountToSpawn = Mathf.FloorToInt(baseSpawnAmount * Mathf.Pow(roundNumber, exponentIncrease));
+            StartCoroutine(SpawnWave((int)amountToSpawn)); //i'll have to figure out the wave spawning amount later.
             roundNumber++;
         }
     }

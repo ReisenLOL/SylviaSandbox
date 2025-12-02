@@ -50,7 +50,6 @@ public class Enemy : Entity
         }
         else if (!isStalled && (currentDistanceToPlayer < minDistanceToAttack || currentAttackDelayTime < attackDelay) && mainAttackInstance.currentAbilityCooldown < 0) //and check if attack isn't on cooldown. nvm we can just add a bool check, probably faster than a float comparison. nvm it would just negate the attack delay
         {
-            Debug.Log(currentAttackDelayTime);
             canMove = false;
             currentAttackDelayTime -= Time.deltaTime;
             if (currentAttackDelayTime < 0)
@@ -62,6 +61,14 @@ public class Enemy : Entity
         }
     }
 
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+        isStalled = true;
+        currentStallTime = timeStalled;
+        currentAttackDelayTime = attackDelay;
+        //also play stun anim
+    }
 
     private void FixedUpdate()
     {

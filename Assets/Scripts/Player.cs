@@ -29,6 +29,11 @@ public class Player : Entity
         UpdateHealthBar();
     }
 
+    protected override void OnKillEffects()
+    {
+        GameManager.instance.GameOver();
+    }
+
     private void UpdateHealthBar()
     {
         healthBarUI.localScale = new Vector3(health/maxHealth, 1f,1f);
