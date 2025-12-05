@@ -8,6 +8,11 @@ public class Player : Entity
     [SerializeField] private Camera cam;
     public float directionAngle;
     [SerializeField] private Transform healthBarUI;
+    [Header("Animation")] 
+    public SpriteRenderer playerSprite;
+    public bool isFacingRight = true;
+    public Animator animator;
+    public string walkAnimTrigger;
     private void FixedUpdate()
     {
         rb.linearVelocity = moveDirection * speed;
@@ -15,6 +20,25 @@ public class Player : Entity
     private void HandleMovement()
     {
         moveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (moveDirection != Vector3.zero)
+        {
+            animator.SetBool(walkAnimTrigger, true);
+        }
+        else
+        {
+            animator.SetBool(walkAnimTrigger, false);
+        }
+
+        if (moveDirection.x < 0f && isFacingRight)
+        {
+            playerSprite.flipX = true;
+            isFacingRight = !isFacingRight;
+        }
+        else if (moveDirection.x > 0f && !isFacingRight)
+        {
+            playerSprite.flipX = false;
+            isFacingRight = !isFacingRight;
+        }
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition + new Vector3(0,0,cam.nearClipPlane));
     }
 

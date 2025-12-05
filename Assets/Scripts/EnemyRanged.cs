@@ -1,13 +1,16 @@
+using System;
+using System.Collections.Generic;
 using Core.Extensions;
-using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyRanged : EntityAbility
 {
     public Projectile projectile;
+    public BulletPattern[] patternsList;
+    //fine i add it in and remove the instantiation
+
     protected override void AbilityEffects()
     {
-        Projectile newProjectile = Instantiate(projectile, thisEntity.transform.position, projectile.transform.rotation);
-        newProjectile.transform.Lookat2D(RoundManager.instance.player.transform.position);
-        newProjectile.tag = thisEntity.tag;
+        patternsList[Random.Range(0,patternsList.Length)].SpawnBulletPattern();
     }
 }

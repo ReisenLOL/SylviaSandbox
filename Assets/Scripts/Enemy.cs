@@ -19,11 +19,11 @@ public class Enemy : Entity
     [SerializeField] private float strafePercent;
     [Header("Attacks")]
     public EntityAbility mainAttack;
-    private EntityAbility mainAttackInstance;
     public float minDistanceToAttack;
     public float currentDistanceToPlayer;
     public float attackDelay;
     public float currentAttackDelayTime;
+    public GameObject attackIndicatorDebug;
     //this entity movement will be basic "follow player"
     private void Start()
     {
@@ -32,8 +32,6 @@ public class Enemy : Entity
             xSign = -xSign;
             ySign = -ySign;
         }
-        mainAttackInstance = Instantiate(mainAttack, transform);
-        mainAttackInstance.thisEntity = this;
     }
 
     private void Update()
@@ -42,21 +40,24 @@ public class Enemy : Entity
         currentDistanceToPlayer = Vector3.Distance(RoundManager.instance.player.transform.position, transform.position);
         if (isStalled)
         {
+            attackIndicatorDebug.SetActive(false);
             currentStallTime -= Time.deltaTime;
             if (currentStallTime <= 0)
             {
                 isStalled = false;
             }
         }
-        else if (!isStalled && (currentDistanceToPlayer < minDistanceToAttack || currentAttackDelayTime < attackDelay) && mainAttackInstance.currentAbilityCooldown < 0) //and check if attack isn't on cooldown. nvm we can just add a bool check, probably faster than a float comparison. nvm it would just negate the attack delay
+        else if (!isStalled && (currentDistanceToPlayer < minDistanceToAttack || currentAttackDelayTime < attackDelay) && mainAttack.currentAbilityCooldown < 0) //and check if attack isn't on cooldown. nvm we can just add a bool check, probably faster than a float comparison. nvm it would just negate the attack delay
         {
+            attackIndicatorDebug.SetActive(true);
             canMove = false;
             currentAttackDelayTime -= Time.deltaTime;
             if (currentAttackDelayTime < 0)
             {
+                attackIndicatorDebug.SetActive(false);
                 canMove = true;
                 currentAttackDelayTime = attackDelay;
-                mainAttackInstance.ActivateAbility();
+                mainAttack.ActivateAbility();
             }
         }
     }

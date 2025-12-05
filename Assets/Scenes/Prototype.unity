@@ -474,7 +474,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -927,7 +927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &717373216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,13 +946,15 @@ MonoBehaviour:
   - {fileID: 864392159828982164, guid: 82c8cec6831c3421689d3447f4dff829, type: 3}
   currentEnemies: []
   enemyFolder: {fileID: 1037570004}
-  spawnLocations:
-  - {fileID: 1860495655}
   spawnDelay: 1
   roundNumber: 1
   amountToSpawn: 0
   baseSpawnAmount: 2
   exponentIncrease: 1.4
+  minX: -9
+  maxX: 9
+  minY: 4
+  maxY: -4
 --- !u!4 &717373217
 Transform:
   m_ObjectHideFlags: 0
@@ -1687,7 +1689,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 6
+    OrthographicSize: 2
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

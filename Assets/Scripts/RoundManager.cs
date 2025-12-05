@@ -28,12 +28,16 @@ public class RoundManager : MonoBehaviour
     public List<Enemy> currentEnemies;
     public Transform enemyFolder;
     [Header("Spawning")]
-    public Transform[] spawnLocations;
     public float spawnDelay;
     public int roundNumber = 1;
     public float amountToSpawn;
     public float baseSpawnAmount;
     public float exponentIncrease;
+    [Header("Spawn Locations")]
+    [SerializeField] private float minX;
+    [SerializeField] private float maxX;
+    [SerializeField] private float minY;
+    [SerializeField] private float maxY;
     private void Start()
     {
         StartCoroutine(SpawnWave(1));
@@ -55,10 +59,11 @@ public class RoundManager : MonoBehaviour
         int spawned = 0;
         while (spawned < amount)
         {
+            Vector3 spawnPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
             int randomEnemy = Random.Range(0, enemyList.Length);
             Enemy newEnemy = Instantiate(enemyList[randomEnemy], enemyFolder);
             currentEnemies.Add(newEnemy);
-            newEnemy.transform.position = spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position;
+            newEnemy.transform.position = spawnPosition;
             spawned++;
             yield return new WaitForSeconds(spawnDelay);
         }
