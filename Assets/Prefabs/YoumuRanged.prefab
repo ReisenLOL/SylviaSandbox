@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77fcca17d993bffd4bbf202c3b07b572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayLength: 0.2
   abilityCooldown: 1
   thisPlayer: {fileID: 0}
   projectile: {fileID: 958303781798122412, guid: e5f41527c131f2c528f237cf87649eca, type: 3}

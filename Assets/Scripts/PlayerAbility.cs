@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerAbility : MonoBehaviour
 {
+    public float delayLength;
     [Header("Cooldown")]
     public float abilityCooldown;
     private float currentAbilityCooldown;
@@ -20,6 +21,7 @@ public class PlayerAbility : MonoBehaviour
         if (currentAbilityCooldown <= 0)
         {
             currentAbilityCooldown = abilityCooldown;
+            thisPlayer.DelayPlayer(delayLength);
             AbilityEffects();
         }
     }

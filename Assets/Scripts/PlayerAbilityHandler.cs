@@ -24,7 +24,6 @@ public class PlayerAbilityHandler : MonoBehaviour
         //defensiveAbilityInstance = Instantiate(defensiveAbility, abilityFolder);
         //defensiveAbilityInstance.thisPlayer = thisPlayer;
     }
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Z))

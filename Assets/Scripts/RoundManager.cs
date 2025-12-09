@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -23,6 +25,7 @@ public class RoundManager : MonoBehaviour
     #endregion
 
     public Player player;
+    [SerializeField] private TextMeshProUGUI roundText;
     [Header("Enemies")]
     public Enemy[] enemyList;
     public List<Enemy> currentEnemies;
@@ -31,6 +34,7 @@ public class RoundManager : MonoBehaviour
     public float spawnDelay;
     public int roundNumber = 1;
     public float amountToSpawn;
+    public int maxClusterSize;
     public float baseSpawnAmount;
     public float exponentIncrease;
     [Header("Spawn Locations")]
@@ -51,21 +55,34 @@ public class RoundManager : MonoBehaviour
             amountToSpawn = Mathf.FloorToInt(baseSpawnAmount * Mathf.Pow(roundNumber, exponentIncrease));
             StartCoroutine(SpawnWave((int)amountToSpawn)); //i'll have to figure out the wave spawning amount later.
             roundNumber++;
+            roundText.text = $"Round {roundNumber}";
         }
     }
 
     IEnumerator SpawnWave(int amount)
     {
         int spawned = 0;
-        while (spawned < amount)
+        int cluster;
+        if (amount > maxClusterSize)
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
-            int randomEnemy = Random.Range(0, enemyList.Length);
-            Enemy newEnemy = Instantiate(enemyList[randomEnemy], enemyFolder);
-            currentEnemies.Add(newEnemy);
-            newEnemy.transform.position = spawnPosition;
-            spawned++;
-            yield return new WaitForSeconds(spawnDelay);
+            cluster = Random.Range(1, maxClusterSize);
+        }
+        else
+        {
+            cluster = Random.Range(1, amount); //this gets pointless calculation after like. 2 waves. but like it's the only way i know, and it's literally like a single frame.
+        }
+        while (spawned < amount) 
+        {
+            for (int i = 0; i < cluster; i++)
+            {
+                Vector3 spawnPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
+                int randomEnemy = Random.Range(0, enemyList.Length);
+                Enemy newEnemy = Instantiate(enemyList[randomEnemy], enemyFolder);
+                currentEnemies.Add(newEnemy);
+                newEnemy.transform.position = spawnPosition;
+                spawned++;
+            }
+            yield return new WaitForSeconds(spawnDelay); //heh, double loop
         }
         yield break;
     }

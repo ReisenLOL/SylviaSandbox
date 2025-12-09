@@ -68,6 +68,7 @@ public class Enemy : Entity
         isStalled = true;
         currentStallTime = timeStalled;
         currentAttackDelayTime = attackDelay;
+        GameManager.instance.UpdateHits();
         //also play stun anim
     }
 

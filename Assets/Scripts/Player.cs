@@ -13,9 +13,15 @@ public class Player : Entity
     public bool isFacingRight = true;
     public Animator animator;
     public string walkAnimTrigger;
+    [Header("Attack Delay")] 
+    public bool isDelayed;
+    public float currentDelayTime;
     private void FixedUpdate()
     {
-        rb.linearVelocity = moveDirection * speed;
+        if (!isDelayed)
+        {
+            rb.linearVelocity = moveDirection * speed;
+        }
     }
     private void HandleMovement()
     {
@@ -45,6 +51,19 @@ public class Player : Entity
     private void Update()
     {
         HandleMovement();
+        if (isDelayed)
+        {
+            currentDelayTime -= Time.deltaTime;
+            if (currentDelayTime < 0)
+            {
+                isDelayed = false;
+            }
+        }
+    }
+    public void DelayPlayer(float delayLength)
+    {
+        isDelayed = true;
+        currentDelayTime = delayLength;
     }
 
     public override void TakeDamage(float damage)

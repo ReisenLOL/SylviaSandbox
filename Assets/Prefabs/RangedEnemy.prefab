@@ -898,7 +898,7 @@ MonoBehaviour:
   maxHealth: 100
   defense: 0
   invulnerable: 0
-  speed: 4
+  speed: 0.5
   canAttack: 1
   canMove: 1
   rb: {fileID: 342996080155256350}

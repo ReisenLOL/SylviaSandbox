@@ -141,8 +141,8 @@ TextureImporter:
       name: myonspritesheet1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 21
+        y: 21
         width: 21
         height: 21
       alignment: 0
@@ -163,7 +163,7 @@ TextureImporter:
       name: myonspritesheet1_2
       rect:
         serializedVersion: 2
-        x: 21
+        x: 0
         y: 0
         width: 21
         height: 21
@@ -185,7 +185,7 @@ TextureImporter:
       name: myonspritesheet1_3
       rect:
         serializedVersion: 2
-        x: 42
+        x: 21
         y: 0
         width: 21
         height: 21
@@ -207,7 +207,7 @@ TextureImporter:
       name: myonspritesheet1_4
       rect:
         serializedVersion: 2
-        x: 63
+        x: 42
         y: 0
         width: 21
         height: 21
@@ -221,6 +221,28 @@ TextureImporter:
       bones: []
       spriteID: 53305bcb488075f96bf46612b9f10a63
       internalID: 1781318464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: myonspritesheet1_5
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 0
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1448bb84932d473af88a32c3d40c9a2e
+      internalID: -147541982
       vertices: []
       indices: 
       edges: []
@@ -244,6 +266,7 @@ TextureImporter:
       myonspritesheet1_2: 230263250
       myonspritesheet1_3: 2072462100
       myonspritesheet1_4: 1781318464
+      myonspritesheet1_5: -147541982
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
