@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisAbility: {fileID: 0}
   bulletSpeed: 14
+  damage: 1
   burstDelay: 0.15
   burstCount: 3

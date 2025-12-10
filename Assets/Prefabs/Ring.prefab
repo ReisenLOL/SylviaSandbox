@@ -46,3 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisAbility: {fileID: 0}
   bulletSpeed: 6
+  damage: 1
+  bulletDirections: []
+  bulletParent: {fileID: 0}
+  willLookAtPlayer: 0

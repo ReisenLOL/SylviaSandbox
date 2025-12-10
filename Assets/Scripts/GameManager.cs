@@ -23,9 +23,12 @@ public class GameManager : MonoBehaviour
     //this is where we handle the scoring...
     [Header("Score")]
     public float score;
+
     [Header("Main UI")] 
+    [SerializeField] private GameObject gameUI;
     [SerializeField] private TextMeshProUGUI scoreUI;
     [SerializeField] private TextMeshProUGUI hitUI;
+    [SerializeField] private Transform hitTimerUI;
     [Header("Game Over UI")]
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private TextMeshProUGUI gameOverScoreText;
@@ -38,11 +41,13 @@ public class GameManager : MonoBehaviour
         if (hitsAmount > 0)
         {
             currentTime += Time.deltaTime;
+            hitTimerUI.localScale = new Vector3(1-(currentTime/hitTimeout), hitTimerUI.localScale.y, hitTimerUI.localScale.z);
             if (currentTime > hitTimeout)
             {
                 hitsAmount = 0;
                 currentTime = 0;
                 hitUI.text = $"Hits: {hitsAmount}";
+                hitUI.gameObject.SetActive(false);
             }
         }
     }
@@ -52,18 +57,20 @@ public class GameManager : MonoBehaviour
         hitsAmount++;
         currentTime = 0;
         hitUI.text = $"Hits: {hitsAmount}";
+        hitUI.gameObject.SetActive(true);
     }
 
     public void UpdateScore()
     {
         score += 1 * (1+(hitsAmount / 10f));
-        scoreUI.text = $"Score: {Math.Floor(score)}";
+        scoreUI.text = $"{Math.Floor(score)}";
     }
 
     public void GameOver()
     {
         Time.timeScale = 0;
         gameOverUI.SetActive(true);
+        gameUI.SetActive(false);
         gameOverScoreText.text = $"GAME OVER!\nScore: {Math.Floor(score)}";
     }
 

@@ -1257,7 +1257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617501587137965385, guid: f67c50183cbbec7b29ccad85bff930bc, type: 3}
       propertyPath: damage
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6617501587137965385, guid: f67c50183cbbec7b29ccad85bff930bc, type: 3}
       propertyPath: thisAbility
@@ -1294,7 +1294,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 942837346798590556, guid: 756a4a6d21b4758489db947ab05eedf6, type: 3}
       propertyPath: damage
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 942837346798590556, guid: 756a4a6d21b4758489db947ab05eedf6, type: 3}
       propertyPath: thisAbility
@@ -1499,7 +1499,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 942837346798590556, guid: 756a4a6d21b4758489db947ab05eedf6, type: 3}
       propertyPath: damage
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 942837346798590556, guid: 756a4a6d21b4758489db947ab05eedf6, type: 3}
       propertyPath: thisAbility
@@ -1749,7 +1749,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 942837346798590556, guid: 756a4a6d21b4758489db947ab05eedf6, type: 3}
       propertyPath: damage
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 942837346798590556, guid: 756a4a6d21b4758489db947ab05eedf6, type: 3}
       propertyPath: thisAbility

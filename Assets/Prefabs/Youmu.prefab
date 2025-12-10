@@ -292,11 +292,17 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   cam: {fileID: 0}
   directionAngle: 0
-  healthBarUI: {fileID: 0}
   playerSprite: {fileID: 5531528913532660114}
   isFacingRight: 1
   animator: {fileID: 6202316610907039409}
   walkAnimTrigger: Walking
+  isDelayed: 0
+  currentDelayTime: 0
+  invulnLength: 0.5
+  currentInvulnTime: 0
+  healthLine: {fileID: 0}
+  depletedHealth: {fileID: 0}
+  healthBar: []
 --- !u!114 &-5333423749635760724
 MonoBehaviour:
   m_ObjectHideFlags: 0

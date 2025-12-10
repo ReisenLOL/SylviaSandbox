@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3466d7df945eb228e5abf1bb116715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayLength: 0.5
-  abilityCooldown: 0.3
+  delayLength: 0.3
+  abilityCooldown: 0.2
   thisPlayer: {fileID: 0}
   damage: 40
   knockbackForce: 20

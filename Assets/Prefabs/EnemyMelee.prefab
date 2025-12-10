@@ -47,5 +47,5 @@ MonoBehaviour:
   thisEntity: {fileID: 0}
   abilityCooldown: 4
   currentAbilityCooldown: 4
-  damage: 10
+  damage: 1
   minDistanceToPlayer: 1.2

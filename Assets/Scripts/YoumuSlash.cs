@@ -35,11 +35,11 @@ public class YoumuSlash : PlayerAbility
     protected override void Update()
     {
         base.Update();
-        transform.Lookat2D(thisPlayer.transform.position + thisPlayer.moveDirection);
+        transform.Lookat2D(thisPlayer.transform.position + thisPlayer.lastMoveDirection);
     }
     protected override void AbilityEffects()
     {
-        thisPlayer.rb.AddForce((thisPlayer.moveDirection) * movementForce, ForceMode2D.Impulse);
+        thisPlayer.rb.AddForce((thisPlayer.lastMoveDirection) * movementForce, ForceMode2D.Impulse);
         foreach (Entity entityFound in enemiesInRange.ToArray())
         {
             entityFound.TakeDamage(damage);

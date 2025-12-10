@@ -18,7 +18,7 @@ public class YoumuRanged : PlayerAbility
         while (currentBurst < burstAmount)
         {
             Projectile newProjectile = Instantiate(projectile, transform.position, projectile.transform.rotation);
-            newProjectile.transform.Lookat2D(thisPlayer.transform.position + thisPlayer.moveDirection);
+            newProjectile.transform.Lookat2D(thisPlayer.transform.position + thisPlayer.lastMoveDirection);
             newProjectile.tag = thisPlayer.tag;
             currentBurst++;
             yield return new WaitForSeconds(burstTime);

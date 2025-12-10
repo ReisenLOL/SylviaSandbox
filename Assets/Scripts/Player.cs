@@ -1,21 +1,30 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Entity
 {
     public Vector3 moveDirection;
+    public Vector3 lastMoveDirection;
     public Vector3 mousePos;
     [SerializeField] private Camera cam;
     public float directionAngle;
-    [SerializeField] private Transform healthBarUI;
     [Header("Animation")] 
     public SpriteRenderer playerSprite;
     public bool isFacingRight = true;
     public Animator animator;
     public string walkAnimTrigger;
     [Header("Attack Delay")] 
+    public bool isStunned;
     public bool isDelayed;
-    public float currentDelayTime;
+    [SerializeField] private float currentDelayTime;
+    [Header("Invulnerability Time")]
+    public float invulnLength;
+    [SerializeField] private float currentInvulnTime;
+    [Header("HealthBar UI")] 
+    [SerializeField] private Sprite healthLine;
+    [SerializeField] private Sprite depletedHealth;
+    [SerializeField] private Image[] healthBar;
     private void FixedUpdate()
     {
         if (!isDelayed)
@@ -26,6 +35,10 @@ public class Player : Entity
     private void HandleMovement()
     {
         moveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            lastMoveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        }
         if (moveDirection != Vector3.zero)
         {
             animator.SetBool(walkAnimTrigger, true);
@@ -59,6 +72,14 @@ public class Player : Entity
                 isDelayed = false;
             }
         }
+        if (invulnerable)
+        {
+            currentInvulnTime -= Time.deltaTime;
+            if (currentInvulnTime < 0)
+            {
+                invulnerable = false;
+            }
+        }
     }
     public void DelayPlayer(float delayLength)
     {
@@ -70,6 +91,12 @@ public class Player : Entity
     {
         base.TakeDamage(damage);
         UpdateHealthBar();
+        if (!invulnerable)
+        {
+            invulnerable = true;
+            currentInvulnTime = invulnLength;
+        }
+        
     }
 
     protected override void OnKillEffects()
@@ -79,6 +106,16 @@ public class Player : Entity
 
     private void UpdateHealthBar()
     {
-        healthBarUI.localScale = new Vector3(health/maxHealth, 1f,1f);
+        for (int i = 0; i < healthBar.Length; i++)
+        {
+            if (i < health)
+            {
+                healthBar[i].sprite = healthLine;
+            }
+            else
+            {
+                healthBar[i].sprite = depletedHealth;
+            }
+        }
     }
 }
