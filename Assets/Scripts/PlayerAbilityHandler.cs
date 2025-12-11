@@ -5,6 +5,7 @@ public class PlayerAbilityHandler : MonoBehaviour
 {
     public PlayerAbility meleeAbility;
     private PlayerAbility meleeAbilityInstance;
+    [SerializeField] private string meleeAbilityAnimationTrigger;
     public PlayerAbility areaOfEffectAbility;
     private PlayerAbility areaOfEffectAbilityInstance;
     public PlayerAbility rangedAbility;
@@ -29,6 +30,7 @@ public class PlayerAbilityHandler : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Z))
         {
             meleeAbilityInstance.ActivateAbility();
+            thisPlayer.animator.SetTrigger(meleeAbilityAnimationTrigger);
         }
         else if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.X))
         {

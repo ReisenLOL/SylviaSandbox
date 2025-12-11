@@ -107,7 +107,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -276,8 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6dd87c61b954489fb953cb0b071ff77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 10
+  maxHealth: 10
   defense: 0
   invulnerable: 0
   speed: 5
@@ -289,6 +289,7 @@ MonoBehaviour:
   - {fileID: 5531528913532660114}
   damageColorChangeSpeed: 8
   moveDirection: {x: 0, y: 0, z: 0}
+  lastMoveDirection: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0, z: 0}
   cam: {fileID: 0}
   directionAngle: 0
@@ -296,13 +297,24 @@ MonoBehaviour:
   isFacingRight: 1
   animator: {fileID: 6202316610907039409}
   walkAnimTrigger: Walking
+  isStunned: 0
   isDelayed: 0
   currentDelayTime: 0
   invulnLength: 0.5
   currentInvulnTime: 0
-  healthLine: {fileID: 0}
-  depletedHealth: {fileID: 0}
-  healthBar: []
+  healthLine: {fileID: 8658387828527836849, guid: f05e0f02b575d57cb9e9a303e30dd1da, type: 3}
+  depletedHealth: {fileID: -6055336145190695742, guid: ce5f1d720ca60ddc3a2c38cbf7e513b7, type: 3}
+  healthBar:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &-5333423749635760724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAbility: {fileID: 6548216960481748679, guid: 0dbbc8cf6e48f8f9cacbf9f032b3f461, type: 3}
+  meleeAbilityAnimationTrigger: 
   areaOfEffectAbility: {fileID: -1694860217565246590, guid: ac5ffd5567d225e06ae0fe51adb7c9d7, type: 3}
   rangedAbility: {fileID: 2197014430216817265, guid: 122c9ca9caf41536c968ea174b84bf82, type: 3}
   defensiveAbility: {fileID: 0}

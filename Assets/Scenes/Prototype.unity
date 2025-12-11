@@ -1399,7 +1399,7 @@ MonoBehaviour:
   amountToSpawn: 0
   maxClusterSize: 4
   baseSpawnAmount: 2
-  exponentIncrease: 1.4
+  exponentIncrease: 1.2
   minX: -9
   maxX: 9
   minY: 4
@@ -2139,7 +2139,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.2028302, g: 0.3185211, b: 1, a: 1}
   m_FlipX: 0
@@ -2606,7 +2606,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
   m_FlipX: 0
@@ -3370,38 +3370,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 151578058250108183, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: m_LinearDamping
-      value: 10
+    - target: {fileID: -5333423749635760724, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
+      propertyPath: meleeAbilityAnimationTrigger
+      value: Attack
       objectReference: {fileID: 0}
     - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: health
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: healthLine
-      value: 
-      objectReference: {fileID: 8658387828527836849, guid: f05e0f02b575d57cb9e9a303e30dd1da, type: 3}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: healthBarUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: depletedHealth
-      value: 
-      objectReference: {fileID: -6055336145190695742, guid: ce5f1d720ca60ddc3a2c38cbf7e513b7, type: 3}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: healthBar.Array.size
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
       propertyPath: 'healthBar.Array.data[0]'
       value: 
@@ -3442,46 +3418,6 @@ PrefabInstance:
       propertyPath: 'healthBar.Array.data[9]'
       value: 
       objectReference: {fileID: 235223127}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: 'healthBar.Array.data[10]'
-      value: 
-      objectReference: {fileID: 235223127}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: 'healthBar.Array.data[11]'
-      value: 
-      objectReference: {fileID: 942576071}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: 'healthBar.Array.data[12]'
-      value: 
-      objectReference: {fileID: 323097817}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: 'healthBar.Array.data[13]'
-      value: 
-      objectReference: {fileID: 1592275630}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: 'healthBar.Array.data[14]'
-      value: 
-      objectReference: {fileID: 1523551247}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: 'healthBar.Array.data[15]'
-      value: 
-      objectReference: {fileID: 1002574012}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: 'healthBar.Array.data[16]'
-      value: 
-      objectReference: {fileID: 1756670574}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: 'healthBar.Array.data[17]'
-      value: 
-      objectReference: {fileID: 51439216}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: 'healthBar.Array.data[18]'
-      value: 
-      objectReference: {fileID: 1221932858}
-    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
-      propertyPath: 'healthBar.Array.data[19]'
-      value: 
-      objectReference: {fileID: 1261638340}
     - target: {fileID: 1885162294938916450, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3761,6 +3697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  gameUI: {fileID: 1607464673}
   scoreUI: {fileID: 1501141898}
   hitUI: {fileID: 621542460}
   hitTimerUI: {fileID: 723954787}
@@ -3828,7 +3765,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.4203938, g: 1, b: 0.4198113, a: 1}
   m_FlipX: 0

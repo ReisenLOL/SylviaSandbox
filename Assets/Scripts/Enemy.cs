@@ -11,7 +11,6 @@ public class Enemy : Entity
     public float timeStalled;
     [Header("Movement")]
     public float acceleration = 150f;
-    private Vector2 lookDirection;
     public Transform[] possibleDirections;
     private float xSign = -1f;
     private float ySign = 1f;
@@ -24,6 +23,8 @@ public class Enemy : Entity
     public float attackDelay;
     public float currentAttackDelayTime;
     public GameObject attackIndicatorDebug;
+    public SpriteRenderer sprite;
+    private bool isFacingRight = true;
     //this entity movement will be basic "follow player"
     private void Start()
     {
@@ -59,6 +60,20 @@ public class Enemy : Entity
                 currentAttackDelayTime = attackDelay;
                 mainAttack.ActivateAbility();
             }
+        }
+        
+    }
+    private void FlipSprite(Vector2 lookDirection)
+    {
+        if (lookDirection.x < 0f && isFacingRight)
+        {
+            sprite.flipX = true;
+            isFacingRight = !isFacingRight;
+        }
+        else if (lookDirection.x > 0f && !isFacingRight)
+        {
+            sprite.flipX = false;
+            isFacingRight = !isFacingRight;
         }
     }
 
@@ -99,6 +114,7 @@ public class Enemy : Entity
                 }
             }
             rb.VelocityTowards(directionToMove.ScaleToMagnitude(speed), acceleration);
+            FlipSprite(directionToMove);
         }
     }
     protected override void OnKillEffects()

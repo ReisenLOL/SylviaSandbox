@@ -35,6 +35,7 @@ public class Player : Entity
     private void HandleMovement()
     {
         moveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        FlipSprite();
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             lastMoveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -47,7 +48,11 @@ public class Player : Entity
         {
             animator.SetBool(walkAnimTrigger, false);
         }
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition + new Vector3(0,0,cam.nearClipPlane));
+    }
 
+    private void FlipSprite()
+    {
         if (moveDirection.x < 0f && isFacingRight)
         {
             playerSprite.flipX = true;
@@ -58,9 +63,7 @@ public class Player : Entity
             playerSprite.flipX = false;
             isFacingRight = !isFacingRight;
         }
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition + new Vector3(0,0,cam.nearClipPlane));
     }
-
     private void Update()
     {
         HandleMovement();

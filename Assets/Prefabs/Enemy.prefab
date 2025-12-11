@@ -644,6 +644,7 @@ MonoBehaviour:
   attackDelay: 0.5
   currentAttackDelayTime: 0.5
   attackIndicatorDebug: {fileID: 5245835532265463757}
+  sprite: {fileID: 1122396262063095569}
 --- !u!1 &7904099253399605220
 GameObject:
   m_ObjectHideFlags: 0

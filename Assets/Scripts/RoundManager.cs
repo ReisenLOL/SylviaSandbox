@@ -63,16 +63,21 @@ public class RoundManager : MonoBehaviour
     {
         int spawned = 0;
         int cluster;
-        if (amount > maxClusterSize)
-        {
-            cluster = Random.Range(1, maxClusterSize);
-        }
-        else
-        {
-            cluster = Random.Range(1, amount); //this gets pointless calculation after like. 2 waves. but like it's the only way i know, and it's literally like a single frame.
-        }
         while (spawned < amount) 
         {
+            if (amount > maxClusterSize)
+            {
+                cluster = Random.Range(1, maxClusterSize);
+            }
+            else if (amount - spawned < maxClusterSize)
+            {
+                cluster = Random.Range(1, amount - spawned);
+            }
+            else
+            {
+                cluster = Random.Range(1, amount); //this gets pointless calculation after like. 2 waves. but like it's the only way i know, and it's literally like a single frame.
+            }
+            //also that's alot of if statements.
             for (int i = 0; i < cluster; i++)
             {
                 Vector3 spawnPosition = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
