@@ -1194,6 +1194,14 @@ PrefabInstance:
       value: EnemyRanged
       objectReference: {fileID: 0}
     - target: {fileID: 448755535286138267, guid: 7babbe3178df7f89ca2b7105244dd038, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0b2094e6564f3191887b432cf72e9ed3, type: 3}
+    - target: {fileID: 448755535286138267, guid: 7babbe3178df7f89ca2b7105244dd038, type: 3}
+      propertyPath: volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 448755535286138267, guid: 7babbe3178df7f89ca2b7105244dd038, type: 3}
       propertyPath: thisEntity
       value: 
       objectReference: {fileID: 864392159828982164}

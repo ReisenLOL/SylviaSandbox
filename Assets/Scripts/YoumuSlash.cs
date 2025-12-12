@@ -12,9 +12,6 @@ public class YoumuSlash : PlayerAbility
     [Header("Cache")]
     public bool canRotate = true;
     public List<Entity> enemiesInRange = new();
-    [SerializeField] private Animator animator;
-    [SerializeField] private string animationTrigger;
-    [SerializeField] private string animationStateName;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag(tag) && other.TryGetComponent(out Entity isEntity))
@@ -46,6 +43,5 @@ public class YoumuSlash : PlayerAbility
             Vector3 knockbackDirection = (entityFound.transform.position - thisPlayer.transform.position).normalized;
             entityFound.rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse); //????
         }
-        //animator.SetTrigger(animationTrigger);
     }
 }

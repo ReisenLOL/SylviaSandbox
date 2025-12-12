@@ -3371,6 +3371,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -5333423749635760724, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
+      propertyPath: meleeSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: f05280a09fcabbdb28aad963e235ff88, type: 3}
+    - target: {fileID: -5333423749635760724, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
       propertyPath: meleeAbilityAnimationTrigger
       value: Attack
       objectReference: {fileID: 0}
@@ -3378,6 +3382,22 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
+      propertyPath: hurtSFX.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
+      propertyPath: 'hurtSFX.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a1c699a8eda636d9289f7d7457df1797, type: 3}
+    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
+      propertyPath: 'hurtSFX.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: df7b9c830af1a7eb48efd96477931f0b, type: 3}
+    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
+      propertyPath: 'hurtSFX.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bc602f5cac68b1ba3b42bd20e5f98db3, type: 3}
     - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
       propertyPath: 'healthBar.Array.data[0]'
       value: 

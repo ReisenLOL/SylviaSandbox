@@ -6,6 +6,9 @@ public class EntityAbility : MonoBehaviour
     [Header("Cooldown")]
     public float abilityCooldown;
     public float currentAbilityCooldown;
+    [Header("SFX")] 
+    [SerializeField] private AudioClip sound;
+    [SerializeField] private float volume;
     protected virtual void Update()
     {
         if (currentAbilityCooldown > 0)
@@ -19,6 +22,8 @@ public class EntityAbility : MonoBehaviour
         if (currentAbilityCooldown <= 0)
         {
             currentAbilityCooldown = abilityCooldown;
+            thisEntity.audioSource.pitch = Random.Range(0.9f, 1.1f);
+            thisEntity.audioSource.PlayOneShot(sound, volume);
             AbilityEffects();
         }
     }

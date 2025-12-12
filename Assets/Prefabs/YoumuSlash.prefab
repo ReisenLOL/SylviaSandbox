@@ -115,17 +115,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3466d7df945eb228e5abf1bb116715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityAnimTrigger: Attack
   delayLength: 0.3
   abilityCooldown: 0.2
+  sound: {fileID: 8300000, guid: f05280a09fcabbdb28aad963e235ff88, type: 3}
+  volume: 0.05
   thisPlayer: {fileID: 0}
   damage: 40
   knockbackForce: 20
   movementForce: 10
   canRotate: 1
   enemiesInRange: []
-  animator: {fileID: 5323249034095609418}
-  animationTrigger: 
-  animationStateName: 
 --- !u!1 &3148740929975639484
 GameObject:
   m_ObjectHideFlags: 0

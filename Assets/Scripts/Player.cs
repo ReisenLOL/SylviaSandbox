@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Player : Entity
 {
+    [SerializeField] private AudioClip[] hurtSFX;
     public Vector3 moveDirection;
     public Vector3 lastMoveDirection;
     public Vector3 mousePos;
@@ -96,6 +98,8 @@ public class Player : Entity
         UpdateHealthBar();
         if (!invulnerable)
         {
+            audioSource.pitch = Random.Range(0.95f, 1.05f); //magic numbers but who cares i ain't setting up variables for everything
+            audioSource.PlayOneShot(hurtSFX[Random.Range(0, hurtSFX.Length)]);
             invulnerable = true;
             currentInvulnTime = invulnLength;
         }
