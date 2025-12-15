@@ -10,6 +10,7 @@ public class YoumuAOE : PlayerAbility
     [Header("Cache")]
     public bool canRotate = true;
     public List<Entity> enemiesInRange = new();
+    public DebugEffect attackEffect;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag(tag) && other.TryGetComponent(out Entity isEntity))
@@ -33,6 +34,7 @@ public class YoumuAOE : PlayerAbility
     }
     protected override void AbilityEffects()
     {
+        Instantiate(attackEffect, thisPlayer.transform);
         foreach (Entity entityFound in enemiesInRange.ToArray())
         {
             entityFound.TakeDamage(damage);

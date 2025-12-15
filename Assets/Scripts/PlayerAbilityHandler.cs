@@ -22,22 +22,29 @@ public class PlayerAbilityHandler : MonoBehaviour
         areaOfEffectAbilityInstance.thisPlayer = thisPlayer;
         rangedAbilityInstance = Instantiate(rangedAbility, abilityFolder);
         rangedAbilityInstance.thisPlayer = thisPlayer;
-        //defensiveAbilityInstance = Instantiate(defensiveAbility, abilityFolder);
-        //defensiveAbilityInstance.thisPlayer = thisPlayer;
+        defensiveAbilityInstance = Instantiate(defensiveAbility, abilityFolder);
+        defensiveAbilityInstance.thisPlayer = thisPlayer;
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Z))
+        if (thisPlayer.canAttack)
         {
-            meleeAbilityInstance.ActivateAbility();
-        }
-        else if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.X))
-        {
-            areaOfEffectAbilityInstance.ActivateAbility();
-        }
-        else if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.C))
-        {
-            rangedAbilityInstance.ActivateAbility();
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Z))
+            {
+                meleeAbilityInstance.ActivateAbility();
+            }
+            else if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.X))
+            {
+                areaOfEffectAbilityInstance.ActivateAbility();
+            }
+            else if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.C))
+            {
+                rangedAbilityInstance.ActivateAbility();
+            }
+            else if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.V))
+            {
+                defensiveAbilityInstance.ActivateAbility();
+            }
         }
     }
 }

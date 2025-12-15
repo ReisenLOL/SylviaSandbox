@@ -6,7 +6,7 @@ public class PlayerAbility : MonoBehaviour
     public float delayLength;
     [Header("Cooldown")]
     public float abilityCooldown;
-    private float currentAbilityCooldown;
+    protected float currentAbilityCooldown;
     [Header("Audio")] 
     [SerializeField] private AudioClip sound;
     [SerializeField] private float volume;
@@ -17,6 +17,7 @@ public class PlayerAbility : MonoBehaviour
         if (currentAbilityCooldown > 0)
         {
             currentAbilityCooldown -= Time.deltaTime;
+            thisPlayer.canAttack = true;
         }
     }
 
@@ -32,6 +33,7 @@ public class PlayerAbility : MonoBehaviour
             {
                 thisPlayer.animator.SetTrigger(abilityAnimTrigger);
             }
+            thisPlayer.canAttack = false;
             AbilityEffects();
         }
     }

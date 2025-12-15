@@ -68,17 +68,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2bce885d308ae9d39eabd369a964975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityAnimTrigger: 
   delayLength: 0.45
   abilityCooldown: 0.5
+  sound: {fileID: 0}
+  volume: 0
   thisPlayer: {fileID: 0}
   damage: 30
   knockbackForce: 8
-  movementForce: 0
   canRotate: 1
   enemiesInRange: []
-  animator: {fileID: 5323249034095609418}
-  animationTrigger: 
-  animationStateName: 
+  attackEffect: {fileID: 2478171880901639836, guid: 97c7a41c7de30be8489d46c45132f5be, type: 3}
 --- !u!58 &5975843737625380137
 CircleCollider2D:
   m_ObjectHideFlags: 0
