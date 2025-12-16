@@ -30,7 +30,7 @@ public class Player : Entity
     [SerializeField] private Image[] healthBar;
     private void FixedUpdate()
     {
-        if (!isDelayed)
+        if (!isDelayed && canMove)
         {
             rb.linearVelocity = moveDirection * speed;
         }
@@ -43,7 +43,7 @@ public class Player : Entity
         {
             lastMoveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         }
-        if (moveDirection != Vector3.zero)
+        if (moveDirection != Vector3.zero && canMove)
         {
             animator.SetBool(walkAnimTrigger, true);
         }

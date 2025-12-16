@@ -16,7 +16,19 @@ public class YoumuDefense : PlayerAbility
         base.Update();
         if (currentDefenseTime > 0)
         {
-            currentDefenseTime -= Time.deltaTime;
+            thisPlayer.invulnerable = true;
+            if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.V))
+            {
+                thisPlayer.canMove = false;
+            }
+            else if (Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.V))
+            {
+                thisPlayer.canMove = true; //this code fucking sucks dude
+            }
+            else
+            {
+                currentDefenseTime -= Time.deltaTime;
+            }
             if (currentDefenseTime <= 0)
             {
                 EndInvulnerability();
@@ -27,6 +39,7 @@ public class YoumuDefense : PlayerAbility
     private void EndInvulnerability()
     {
         thisPlayer.invulnerable = false;
+        thisPlayer.canMove = true;
         if (currentDefenseTime < 0)
         {
             currentAbilityCooldown =  abilityCooldown * 2f;
