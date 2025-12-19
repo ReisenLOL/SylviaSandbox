@@ -77,11 +77,11 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
     {
-        
+        SceneManager.LoadScene(0);
     }
 }

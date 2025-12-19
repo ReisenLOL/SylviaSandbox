@@ -29,6 +29,8 @@ public class RoundManager : MonoBehaviour
     [Header("Enemies")]
     public Enemy[] enemyList;
     public List<Enemy> currentEnemies;
+    public Enemy bossEnemy;
+    public int bossRound;
     public Transform enemyFolder;
     [Header("Spawning")]
     public float spawnDelay;
@@ -53,12 +55,23 @@ public class RoundManager : MonoBehaviour
         if (currentEnemies.Count == 0)
         {
             amountToSpawn = Mathf.FloorToInt(baseSpawnAmount * Mathf.Pow(roundNumber, exponentIncrease));
-            StartCoroutine(SpawnWave((int)amountToSpawn)); //i'll have to figure out the wave spawning amount later.
+            if (roundNumber % bossRound == 0)
+            {
+                BossWave();
+            }
+            else
+            {
+                StartCoroutine(SpawnWave((int)amountToSpawn)); //i'll have to figure out the wave spawning amount later.
+            }
             roundNumber++;
             roundText.text = $"Round {roundNumber}";
         }
     }
 
+    private void BossWave()
+    {
+        
+    }
     IEnumerator SpawnWave(int amount)
     {
         int spawned = 0;
