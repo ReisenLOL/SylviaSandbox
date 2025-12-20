@@ -35,7 +35,7 @@ public class Enemy : Entity
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         //if player nearby. start attack wait timer. if stalled, clear attack wait timer and stun
         currentDistanceToPlayer = Vector3.Distance(RoundManager.instance.player.transform.position, transform.position);

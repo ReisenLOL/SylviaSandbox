@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ENEMY!!!
+  m_text: BOSS ENEMY!!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -338,9 +338,9 @@ GameObject:
   - component: {fileID: 342996080155256350}
   - component: {fileID: 1074865970867437980}
   - component: {fileID: 5111497847271329632}
-  - component: {fileID: 864392159828982164}
+  - component: {fileID: 2801067224474362492}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: BossEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -591,7 +591,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &864392159828982164
+--- !u!114 &2801067224474362492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -600,14 +600,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6025598795231351158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d45e13f1587d9f8580f1fff0698b81b, type: 3}
+  m_Script: {fileID: 11500000, guid: 16fcf69b5703b908583ce45d8d24cd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 1500
+  maxHealth: 1500
   defense: 0
   invulnerable: 0
-  speed: 4
+  speed: 3
   canAttack: 1
   canMove: 1
   rb: {fileID: 342996080155256350}
@@ -617,7 +617,7 @@ MonoBehaviour:
   damageColorChangeSpeed: 8
   isStalled: 0
   currentStallTime: 0
-  timeStalled: 1
+  timeStalled: 0
   acceleration: 150
   possibleDirections:
   - {fileID: 8213969808968203579}
@@ -638,13 +638,17 @@ MonoBehaviour:
   - {fileID: 501004409414786504}
   forwardPercent: 0.5
   strafePercent: 0.5
-  mainAttack: {fileID: 3382012960129712292}
-  minDistanceToAttack: 1.5
+  mainAttack: {fileID: 0}
+  minDistanceToAttack: 0.5
   currentDistanceToPlayer: 0
-  attackDelay: 0.5
+  attackDelay: 0
   currentAttackDelayTime: 0.5
   attackIndicatorDebug: {fileID: 5245835532265463757}
   sprite: {fileID: 1122396262063095569}
+  attacks: []
+  hitLimit: 0
+  hitBaseLimit: 0
+  stallTimeout: 0
 --- !u!1 &7904099253399605220
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,10 +735,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6955987825451304373}
     m_Modifications:
-    - target: {fileID: -2135871330623049375, guid: 46b3ae2546b63f41b820010f0e405add, type: 3}
-      propertyPath: thisEntity
-      value: 
-      objectReference: {fileID: 864392159828982164}
     - target: {fileID: 133113837832668883, guid: 46b3ae2546b63f41b820010f0e405add, type: 3}
       propertyPath: m_Name
       value: EnemyMelee
@@ -789,17 +789,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5656881080145934960, guid: 46b3ae2546b63f41b820010f0e405add, type: 3}
   m_PrefabInstance: {fileID: 5527199361987588549}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3382012960129712292 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -2135871330623049375, guid: 46b3ae2546b63f41b820010f0e405add, type: 3}
-  m_PrefabInstance: {fileID: 5527199361987588549}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3af5783ef431384258caa511dd97e974, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7884926644718805927
 PrefabInstance:
   m_ObjectHideFlags: 0
