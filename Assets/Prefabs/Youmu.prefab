@@ -301,6 +301,7 @@ MonoBehaviour:
   isStunned: 0
   isDelayed: 0
   currentDelayTime: 0
+  damageMultiplier: 1
   invulnLength: 0.5
   currentInvulnTime: 0
   healthLine: {fileID: 8658387828527836849, guid: f05e0f02b575d57cb9e9a303e30dd1da, type: 3}
@@ -331,7 +332,7 @@ MonoBehaviour:
   meleeAbility: {fileID: 6548216960481748679, guid: 0dbbc8cf6e48f8f9cacbf9f032b3f461, type: 3}
   areaOfEffectAbility: {fileID: -1694860217565246590, guid: ac5ffd5567d225e06ae0fe51adb7c9d7, type: 3}
   rangedAbility: {fileID: 2197014430216817265, guid: 122c9ca9caf41536c968ea174b84bf82, type: 3}
-  defensiveAbility: {fileID: 2333537670796902699, guid: de9591572734d5fd4afe902e569804c9, type: 3}
+  boostAbility: {fileID: 4818804598223085058, guid: 0fcf062127aadb0c99f1ec40c477babc, type: 3}
   abilityFolder: {fileID: 6996310848630606505}
   thisPlayer: {fileID: 513317751254649460}
 --- !u!95 &6202316610907039409

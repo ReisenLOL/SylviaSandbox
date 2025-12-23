@@ -55,11 +55,11 @@ public class RoundManager : MonoBehaviour
         if (currentEnemies.Count == 0)
         {
             amountToSpawn = Mathf.FloorToInt(baseSpawnAmount * Mathf.Pow(roundNumber, exponentIncrease));
-            if (roundNumber % bossRound == 0)
+            /*if (roundNumber % bossRound == 0)
             {
                 BossWave();
             }
-            else
+            else*/
             {
                 StartCoroutine(SpawnWave((int)amountToSpawn)); //i'll have to figure out the wave spawning amount later.
             }

@@ -8,7 +8,7 @@ public class YoumuDefense : PlayerAbility
 
     private void Start()
     {
-        Player.onTakeDamage += EndInvulnerability;
+        //Player.onTakeDamage += EndInvulnerability; not yet man
     }
 
     protected override void Update()
@@ -16,6 +16,7 @@ public class YoumuDefense : PlayerAbility
         base.Update();
         if (currentDefenseTime > 0)
         {
+            /*
             thisPlayer.invulnerable = true;
             if (Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.V))
             {
@@ -27,8 +28,10 @@ public class YoumuDefense : PlayerAbility
             }
             else
             {
-                currentDefenseTime -= Time.deltaTime;
+
             }
+            */
+            currentDefenseTime -= Time.deltaTime;
             if (currentDefenseTime <= 0)
             {
                 EndInvulnerability();

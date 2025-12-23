@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,9 +30,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreUI;
     [SerializeField] private TextMeshProUGUI hitUI;
     [SerializeField] private Transform hitTimerUI;
+    public Image chargeUI; //adding this here because GameObject.find is stinky.
     [Header("Game Over UI")]
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private TextMeshProUGUI gameOverScoreText;
+    [SerializeField] private TextMeshProUGUI roundText;
+    [SerializeField] private TextMeshProUGUI timeText;
     [Header("Hits")] 
     public int hitsAmount;
     [SerializeField] private float hitTimeout;
@@ -71,7 +75,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         gameOverUI.SetActive(true);
         gameUI.SetActive(false);
-        gameOverScoreText.text = $"GAME OVER!\nScore: {Math.Floor(score)}";
+        gameOverScoreText.text = $"{Math.Floor(score)}";
+        roundText.text = $"{RoundManager.instance.roundNumber}";
+        timeText.text = TimeSpan.FromSeconds(Time.timeSinceLevelLoad).ToString(@"mm\:ss\.ff");
     }
 
     public void RestartGame()

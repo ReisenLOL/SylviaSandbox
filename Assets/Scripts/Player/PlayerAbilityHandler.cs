@@ -10,8 +10,8 @@ public class PlayerAbilityHandler : MonoBehaviour
     private PlayerAbility areaOfEffectAbilityInstance;
     public PlayerAbility rangedAbility;
     private PlayerAbility rangedAbilityInstance;
-    public PlayerAbility defensiveAbility;
-    private PlayerAbility defensiveAbilityInstance;
+    public PlayerAbility boostAbility;
+    private PlayerAbility boostAbilityInstance;
     public Transform abilityFolder;
     public Player thisPlayer;
     private void Start()
@@ -22,8 +22,8 @@ public class PlayerAbilityHandler : MonoBehaviour
         areaOfEffectAbilityInstance.thisPlayer = thisPlayer;
         rangedAbilityInstance = Instantiate(rangedAbility, abilityFolder);
         rangedAbilityInstance.thisPlayer = thisPlayer;
-        defensiveAbilityInstance = Instantiate(defensiveAbility, abilityFolder);
-        defensiveAbilityInstance.thisPlayer = thisPlayer;
+        boostAbilityInstance = Instantiate(boostAbility, abilityFolder);
+        boostAbilityInstance.thisPlayer = thisPlayer;
     }
     private void Update()
     {
@@ -41,10 +41,10 @@ public class PlayerAbilityHandler : MonoBehaviour
             {
                 rangedAbilityInstance.ActivateAbility();
             }
-            else if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.V))
-            {
-                defensiveAbilityInstance.ActivateAbility();
-            }
+        }
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.V))
+        {
+            boostAbilityInstance.ActivateAbility(); //i think they should be able to defend at any time?
         }
     }
 }

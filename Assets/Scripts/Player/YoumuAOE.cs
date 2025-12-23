@@ -37,7 +37,7 @@ public class YoumuAOE : PlayerAbility
         Instantiate(attackEffect, thisPlayer.transform);
         foreach (Entity entityFound in enemiesInRange.ToArray())
         {
-            entityFound.TakeDamage(damage);
+            entityFound.TakeDamage(damage * thisPlayer.damageMultiplier);
             Vector3 knockbackDirection = (entityFound.transform.position - thisPlayer.transform.position).normalized;
             entityFound.rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse); //????
         }

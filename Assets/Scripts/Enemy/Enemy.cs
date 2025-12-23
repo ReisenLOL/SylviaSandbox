@@ -25,6 +25,8 @@ public class Enemy : Entity
     public GameObject attackIndicatorDebug;
     public SpriteRenderer sprite;
     private bool isFacingRight = true;
+
+    public static Action OnKill;
     //this entity movement will be basic "follow player"
     private void Start()
     {
@@ -80,6 +82,7 @@ public class Enemy : Entity
     public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
+        Debug.Log($"Damge: {damage}");
         isStalled = true;
         currentStallTime = timeStalled;
         currentAttackDelayTime = attackDelay;
@@ -120,6 +123,7 @@ public class Enemy : Entity
     protected override void OnKillEffects()
     {
         base.OnKillEffects();
+        OnKill?.Invoke();
         RoundManager.instance.currentEnemies.Remove(this);
         RoundManager.instance.UpdateEnemyCount();
     }
