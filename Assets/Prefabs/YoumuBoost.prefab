@@ -51,7 +51,11 @@ MonoBehaviour:
   volume: 0
   thisPlayer: {fileID: 0}
   currentKills: 0
+  minKills: 10
   killLimit: 20
   boostTime: -1
   boostLength: 14
   damageBoostAmount: 3
+  speedBoostAmount: 2
+  boostDelay: 10
+  delayTime: 0

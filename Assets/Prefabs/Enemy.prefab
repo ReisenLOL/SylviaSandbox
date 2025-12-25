@@ -639,7 +639,7 @@ MonoBehaviour:
   forwardPercent: 0.5
   strafePercent: 0.5
   mainAttack: {fileID: 3382012960129712292}
-  minDistanceToAttack: 1.5
+  minDistanceToAttack: 2
   currentDistanceToPlayer: 0
   attackDelay: 0.5
   currentAttackDelayTime: 0.5

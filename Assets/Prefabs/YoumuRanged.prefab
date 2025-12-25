@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77fcca17d993bffd4bbf202c3b07b572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityAnimTrigger: 
-  delayLength: 0.2
+  abilityAnimTrigger: Ranged
+  delayLength: 0.5
   abilityCooldown: 1
   sound: {fileID: 0}
   volume: 0

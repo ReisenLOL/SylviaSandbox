@@ -1,4 +1,5 @@
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -11,11 +12,14 @@ public class Player : Entity
     public Vector3 mousePos;
     [SerializeField] private Camera cam;
     public float directionAngle;
+    public float speedMult = 1f;
     [Header("Animation")] 
     public SpriteRenderer playerSprite;
     public bool isFacingRight = true;
     public Animator animator;
     public string walkAnimTrigger;
+    public CinemachineImpulseSource impulseSource;
+    public float cameraShakeForce;
     [Header("Attack")] 
     public bool isStunned;
     public bool isDelayed;
@@ -32,7 +36,7 @@ public class Player : Entity
     {
         if (!isDelayed && canMove)
         {
-            rb.linearVelocity = moveDirection * speed;
+            rb.linearVelocity = moveDirection * (speed * speedMult);
         }
     }
     private void HandleMovement()
@@ -102,6 +106,8 @@ public class Player : Entity
             audioSource.pitch = Random.Range(0.95f, 1.05f); //magic numbers but who cares i ain't setting up variables for everything 
             audioSource.PlayOneShot(hurtSFX[Random.Range(0, hurtSFX.Length)], 0.5f);
             invulnerable = true;
+            impulseSource.DefaultVelocity = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
+            impulseSource.GenerateImpulse(cameraShakeForce);
             currentInvulnTime = invulnLength;
         }
         
