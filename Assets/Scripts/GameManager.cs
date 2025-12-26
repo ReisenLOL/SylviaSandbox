@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
         gameOverScoreText.text = $"{Math.Floor(score)}";
         roundText.text = $"{RoundManager.instance.roundNumber}";
         timeText.text = TimeSpan.FromSeconds(Time.timeSinceLevelLoad).ToString(@"mm\:ss\.ff");
+        LeaderboardManager.instance.SetLeaderboardEntry(LeaderboardManager.instance.chosenUsername, (int)score);
     }
 
     public void RestartGame()

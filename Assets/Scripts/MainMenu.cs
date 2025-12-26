@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenuUI;
+    public TMP_InputField nameEntryUI;
     public void OpenMenu(GameObject menuToOpen)
     {
         menuToOpen.SetActive(true);
@@ -19,6 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        LeaderboardManager.instance.chosenUsername = nameEntryUI.text;
         SceneManager.LoadScene(1);
     }
     public void QuitGame()
