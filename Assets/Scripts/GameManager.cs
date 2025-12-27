@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hitUI;
     [SerializeField] private Transform hitTimerUI;
     public Image chargeUI; //adding this here because GameObject.find is stinky.
+    [Header("Pause")]
+    [SerializeField] private GameObject pauseUI;
+    private bool pause = false;
     [Header("Game Over UI")]
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private TextMeshProUGUI gameOverScoreText;
@@ -53,6 +56,11 @@ public class GameManager : MonoBehaviour
                 hitUI.text = $"Hits: {hitsAmount}";
                 hitUI.gameObject.SetActive(false);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SetPause();
         }
     }
 
@@ -79,6 +87,7 @@ public class GameManager : MonoBehaviour
         roundText.text = $"{RoundManager.instance.roundNumber}";
         timeText.text = TimeSpan.FromSeconds(Time.timeSinceLevelLoad).ToString(@"mm\:ss\.ff");
         LeaderboardManager.instance.SetLeaderboardEntry(LeaderboardManager.instance.chosenUsername, (int)score);
+        LeaderboardManager.instance.UpdateHighScores((int)score, RoundManager.instance.roundNumber, Time.timeSinceLevelLoad);
     }
 
     public void RestartGame()
@@ -90,5 +99,23 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void SetPause()
+    {
+        pause = !pause;
+        if (pause)
+        {
+            Time.timeScale = 0;
+            pauseUI.SetActive(true);
+            gameUI.SetActive(false);
+        }
+        else
+        {
+            
+            Time.timeScale = 1;
+            pauseUI.SetActive(false);
+            gameUI.SetActive(true);
+        }
     }
 }
