@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         LeaderboardManager.instance.chosenUsername = nameEntryUI.text;
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
     public void QuitGame()

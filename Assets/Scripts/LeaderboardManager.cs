@@ -29,6 +29,8 @@ public class LeaderboardManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private TextMeshProUGUI roundText;
     [SerializeField] private TextMeshProUGUI timeText;
+    
+    public TMP_InputField nameEntryUI;
     private string savePath => Path.Combine(Application.persistentDataPath, "HighScore.json");
     
     public class ScoreSaveData
@@ -39,6 +41,11 @@ public class LeaderboardManager : MonoBehaviour
     }
     private void Start()
     {
+        ResetUI();
+    }
+
+    public void ResetUI()
+    {
         GetLeaderboard();
         if (File.Exists(savePath))
         {
@@ -46,6 +53,11 @@ public class LeaderboardManager : MonoBehaviour
             highScoreText.text = $"{foundData.score}";
             roundText.text = $"{foundData.round}";
             timeText.text = TimeSpan.FromSeconds(foundData.time).ToString(@"mm\:ss\.ff");
+        }
+
+        if (chosenUsername != null || chosenUsername != "")
+        {
+            nameEntryUI.text = chosenUsername;
         }
     }
 

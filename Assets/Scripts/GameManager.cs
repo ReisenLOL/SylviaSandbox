@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         SceneManager.LoadScene(0);
-        LeaderboardManager.instance.GetHighScores();
+        LeaderboardManager.instance.ResetUI();
     }
 
     public void SetPause()
