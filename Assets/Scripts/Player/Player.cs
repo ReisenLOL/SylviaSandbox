@@ -20,6 +20,7 @@ public class Player : Entity
     public string walkAnimTrigger;
     public CinemachineImpulseSource impulseSource;
     public float cameraShakeForce;
+    public Transform shadow;
     [Header("Attack")] 
     public bool isStunned;
     public bool isDelayed;
@@ -32,6 +33,13 @@ public class Player : Entity
     [SerializeField] private Sprite healthLine;
     [SerializeField] private Sprite depletedHealth;
     [SerializeField] private Image[] healthBar;
+
+    private void Start()
+    {
+        GameManager.instance.ReloadInstances();
+        RoundManager.instance.ReloadInstances();
+    }
+
     private void FixedUpdate()
     {
         if (!isDelayed && canMove)
@@ -63,11 +71,13 @@ public class Player : Entity
         if (moveDirection.x < 0f && isFacingRight)
         {
             playerSprite.flipX = true;
+            shadow.localPosition = new Vector3(-shadow.localPosition.x, shadow.localPosition.y, 0);
             isFacingRight = !isFacingRight;
         }
         else if (moveDirection.x > 0f && !isFacingRight)
         {
             playerSprite.flipX = false;
+            shadow.localPosition = new Vector3(-shadow.localPosition.x, shadow.localPosition.y, 0);
             isFacingRight = !isFacingRight;
         }
     }

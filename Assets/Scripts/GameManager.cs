@@ -43,6 +43,26 @@ public class GameManager : MonoBehaviour
     public int hitsAmount;
     [SerializeField] private float hitTimeout;
     private float currentTime;
+    
+    public void ReloadInstances()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            gameUI = GameObject.Find("GameUI");
+            scoreUI = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+            hitUI = GameObject.Find("HitText").GetComponent<TextMeshProUGUI>();
+            hitTimerUI = GameObject.Find("HitLength").transform;
+            gameOverUI = GameObject.Find("GameOverScreen");
+            gameOverScoreText =  GameObject.Find("ScoreLabel").transform.Find("Amount").GetComponent<TextMeshProUGUI>();
+            roundText = GameObject.Find("RoundLabel").transform.Find("Amount").GetComponent<TextMeshProUGUI>();
+            timeText = GameObject.Find("TimeLabel").transform.Find("Amount").GetComponent<TextMeshProUGUI>();
+            chargeUI = GameObject.Find("ChargeBar").GetComponent<Image>();
+        }
+        hitUI.gameObject.SetActive(false);
+        pauseUI.gameObject.SetActive(false);
+        gameOverUI.gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         if (hitsAmount > 0)

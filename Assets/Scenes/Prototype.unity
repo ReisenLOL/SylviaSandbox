@@ -1664,7 +1664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &621542459
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2814,7 +2814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &955136026
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4023,7 +4023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1386849604
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4759,6 +4759,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
+      propertyPath: chargeUI
+      value: 
+      objectReference: {fileID: 1290317240}
     - target: {fileID: 513317751254649460, guid: 825e546f7e25f5acfabc52dac2ff60ef, type: 3}
       propertyPath: invulnLength
       value: 0.8

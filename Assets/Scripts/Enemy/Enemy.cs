@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 
 public class Enemy : Entity
 {
+    public Transform shadow;
     [Header("Stall")]
     public bool isStalled;
     public float currentStallTime;
@@ -70,11 +71,13 @@ public class Enemy : Entity
         if (lookDirection.x < 0f && isFacingRight)
         {
             sprite.flipX = true;
+            shadow.localPosition = new Vector3(-shadow.localPosition.x, shadow.localPosition.y, 0);
             isFacingRight = !isFacingRight;
         }
         else if (lookDirection.x > 0f && !isFacingRight)
         {
             sprite.flipX = false;
+            shadow.localPosition = new Vector3(-shadow.localPosition.x, shadow.localPosition.y, 0);
             isFacingRight = !isFacingRight;
         }
     }

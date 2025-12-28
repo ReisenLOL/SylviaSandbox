@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class RoundManager : MonoBehaviour
@@ -65,6 +66,16 @@ public class RoundManager : MonoBehaviour
             }
             roundNumber++;
             roundText.text = $"Round {roundNumber}";
+        }
+    }
+
+    public void ReloadInstances()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            player = FindFirstObjectByType<Player>();
+            currentEnemies.Clear();
+            roundText = GameObject.Find("RoundText").GetComponent<TextMeshProUGUI>();
         }
     }
 
