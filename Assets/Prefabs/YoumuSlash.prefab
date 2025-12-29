@@ -121,7 +121,7 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: f05280a09fcabbdb28aad963e235ff88, type: 3}
   volume: 0.05
   thisPlayer: {fileID: 0}
-  damage: 40
+  damage: 1
   knockbackForce: 20
   movementForce: 10
   canRotate: 1

@@ -47,8 +47,8 @@ MonoBehaviour:
   abilityAnimTrigger: Ranged
   delayLength: 0.5
   abilityCooldown: 1
-  sound: {fileID: 0}
-  volume: 0
+  sound: {fileID: 8300000, guid: c591e832eef4c866c89fa04ed184452b, type: 3}
+  volume: 0.2
   thisPlayer: {fileID: 0}
   projectile: {fileID: 958303781798122412, guid: e5f41527c131f2c528f237cf87649eca, type: 3}
   burstTime: 0.1

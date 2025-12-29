@@ -85,7 +85,7 @@ public class Enemy : Entity
     public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
-        Debug.Log($"Damge: {damage}");
+        //Debug.Log($"Damage: {damage}");
         isStalled = true;
         currentStallTime = timeStalled;
         currentAttackDelayTime = attackDelay;

@@ -56,14 +56,11 @@ public class RoundManager : MonoBehaviour
         if (currentEnemies.Count == 0)
         {
             amountToSpawn = Mathf.FloorToInt(baseSpawnAmount * Mathf.Pow(roundNumber, exponentIncrease));
-            /*if (roundNumber % bossRound == 0)
+            if ((roundNumber+1) % 3 == 0 && player.health < player.maxHealth)
             {
-                BossWave();
+                player.Heal(1);
             }
-            else*/
-            {
-                StartCoroutine(SpawnWave((int)amountToSpawn)); //i'll have to figure out the wave spawning amount later.
-            }
+            StartCoroutine(SpawnWave((int)amountToSpawn)); //i'll have to figure out the wave spawning amount later.
             roundNumber++;
             roundText.text = $"Round {roundNumber}";
         }

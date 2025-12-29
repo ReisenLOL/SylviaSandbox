@@ -47,15 +47,15 @@ MonoBehaviour:
   abilityAnimTrigger: 
   delayLength: 0
   abilityCooldown: 0.5
-  sound: {fileID: 0}
-  volume: 0
+  sound: {fileID: 8300000, guid: af72af7964edfe18cb3b7ac0dbd93516, type: 3}
+  volume: 0.2
   thisPlayer: {fileID: 0}
   currentKills: 0
   minKills: 10
   killLimit: 20
   boostTime: -1
   boostLength: 14
-  damageBoostAmount: 3
+  damageBoostAmount: 2
   speedBoostAmount: 2
   boostDelay: 10
   delayTime: 0

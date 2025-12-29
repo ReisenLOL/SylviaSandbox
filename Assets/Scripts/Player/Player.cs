@@ -123,6 +123,12 @@ public class Player : Entity
         
     }
 
+    public override void Heal(float healAmount)
+    {
+        base.Heal(healAmount);
+        UpdateHealthBar();
+    }
+
     protected override void OnKillEffects()
     {
         GameManager.instance.GameOver();
