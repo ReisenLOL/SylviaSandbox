@@ -34,6 +34,7 @@ public class RoundManager : MonoBehaviour
     public int bossRound;
     public Transform enemyFolder;
     [Header("Spawning")]
+    public bool inWave = false;
     public float spawnDelay;
     public int roundNumber = 1;
     public float amountToSpawn;
@@ -53,14 +54,16 @@ public class RoundManager : MonoBehaviour
     public void UpdateEnemyCount()
     {
         GameManager.instance.UpdateScore();
-        if (currentEnemies.Count == 0)
+        if (currentEnemies.Count == 0 && !inWave)
         {
             amountToSpawn = Mathf.FloorToInt(baseSpawnAmount * Mathf.Pow(roundNumber, exponentIncrease));
             if ((roundNumber+1) % 3 == 0 && player.health < player.maxHealth)
             {
                 player.Heal(1);
             }
+            GameManager.instance.UpdateMultiplier();
             StartCoroutine(SpawnWave((int)amountToSpawn)); //i'll have to figure out the wave spawning amount later.
+            inWave = true;
             roundNumber++;
             roundText.text = $"Round {roundNumber}";
         }
@@ -110,6 +113,7 @@ public class RoundManager : MonoBehaviour
             }
             yield return new WaitForSeconds(spawnDelay); //heh, double loop
         }
+        inWave = false;
         yield break;
     }
 }

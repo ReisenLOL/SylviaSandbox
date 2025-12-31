@@ -117,8 +117,9 @@ public class Player : Entity
             audioSource.PlayOneShot(hurtSFX[Random.Range(0, hurtSFX.Length)], 0.5f);
             invulnerable = true;
             impulseSource.DefaultVelocity = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
-            impulseSource.GenerateImpulse(cameraShakeForce);
+            impulseSource.GenerateImpulse((cameraShakeForce*2f) * PlayerPrefs.GetFloat("ScreenShake"));
             currentInvulnTime = invulnLength;
+            GameManager.instance.missMultiplier = 1f;
         }
         
     }

@@ -464,7 +464,7 @@ MonoBehaviour:
   spriteRenderers:
   - {fileID: 1122396262063095569}
   damageColorChangeSpeed: 8
-  shadow: {fileID: 0}
+  shadow: {fileID: 8158656281742796168}
   isStalled: 0
   currentStallTime: 0
   timeStalled: 1

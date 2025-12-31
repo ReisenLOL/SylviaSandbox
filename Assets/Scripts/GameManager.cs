@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -39,10 +40,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameOverScoreText;
     [SerializeField] private TextMeshProUGUI roundText;
     [SerializeField] private TextMeshProUGUI timeText;
+    [SerializeField] private TextMeshProUGUI multiplierText;
     [Header("Hits")] 
     public int hitsAmount;
     [SerializeField] private float hitTimeout;
     private float currentTime;
+
+    [Header("No Miss Multiplier")] 
+    public bool hasTakenDamage = false;
+    public float missMultiplier = 1f;
+    [SerializeField] private float maxMultiplier;
+    public float multiplierIncrease;
     
     public void ReloadInstances()
     {
@@ -56,6 +64,7 @@ public class GameManager : MonoBehaviour
             gameOverScoreText =  GameObject.Find("ScoreLabel").transform.Find("Amount").GetComponent<TextMeshProUGUI>();
             roundText = GameObject.Find("RoundLabel").transform.Find("Amount").GetComponent<TextMeshProUGUI>();
             timeText = GameObject.Find("TimeLabel").transform.Find("Amount").GetComponent<TextMeshProUGUI>();
+            multiplierText = GameObject.Find("MultiplierText").GetComponent<TextMeshProUGUI>();
             chargeUI = GameObject.Find("ChargeBar").GetComponent<Image>();
         }
         hitUI.gameObject.SetActive(false);
@@ -75,6 +84,7 @@ public class GameManager : MonoBehaviour
                 currentTime = 0;
                 hitUI.text = $"Hits: {hitsAmount}";
                 hitUI.gameObject.SetActive(false);
+                UpdateMultiplierUI();
             }
         }
 
@@ -90,12 +100,28 @@ public class GameManager : MonoBehaviour
         currentTime = 0;
         hitUI.text = $"Hits: {hitsAmount}";
         hitUI.gameObject.SetActive(true);
+        UpdateMultiplierUI();
     }
 
     public void UpdateScore()
     {
-        score += 1 * (1+(hitsAmount / 10f));
+        score += 1 * (1+(hitsAmount / 10f)) * missMultiplier;
         scoreUI.text = $"{Math.Floor(score)}";
+    }
+
+    public void UpdateMultiplier()
+    {
+        if (!hasTakenDamage)
+        {
+            missMultiplier += multiplierIncrease;
+            missMultiplier = math.clamp(missMultiplier, 1f, maxMultiplier);
+            UpdateMultiplierUI();
+        }
+    }
+
+    private void UpdateMultiplierUI()
+    {
+        multiplierText.text = $"Multiplier: x{(1+(hitsAmount / 10f)) * missMultiplier}";
     }
 
     public void GameOver()
