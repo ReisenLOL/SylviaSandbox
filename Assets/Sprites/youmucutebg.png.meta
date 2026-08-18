@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      youmucutebg_0: -8865155433534406012
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

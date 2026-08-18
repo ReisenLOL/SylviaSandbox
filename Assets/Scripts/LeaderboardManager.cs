@@ -29,7 +29,8 @@ public class LeaderboardManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private TextMeshProUGUI roundText;
     [SerializeField] private TextMeshProUGUI timeText;
-    
+
+    private int page;
     public TMP_InputField nameEntryUI;
     private string savePath => Path.Combine(Application.persistentDataPath, "HighScore.json");
     
@@ -68,7 +69,7 @@ public class LeaderboardManager : MonoBehaviour
             int loopLength = (entries.Length < nameLabels.Length) ? entries.Length : nameLabels.Length;
             for (int i = 0; i < loopLength; i++)
             {
-                nameLabels[i].text = entries[i].Username;
+                nameLabels[i].text = $"{entries[i].Rank}. {entries[i].Username}";
                 scoreLabels[i].text = entries[i].Score.ToString();
             }
         });
